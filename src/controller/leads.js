@@ -62,6 +62,7 @@ const getAllLeads = async (req, res) => {
     const leads = await db("leads")
       .select("*")
       .orderBy("datetime", "desc")
+      .where("user_id", "=", user_id)
       .limit(limit)
       .offset(offset);
 
